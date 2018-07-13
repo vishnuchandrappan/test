@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TO-DO</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	<link href="https://fastcdn.org/Animate.css/3.4.0/animate.css" rel="stylesheet">
+	<style type="text/css">
+		body{
+			margin-top:50px;		
+		}
+		.a{
+			border-radius: 10px 10px;margin-top:5px;margin-bottom:5px;
+		}
+		.b{
+			text-align: justify;
+		}
+		.c{
+			margin-left: 250px;margin-right: 250px;max-width: 50%;
+		}
+		button{
+			margin:solid;
+		}
+		.ac{
+			background-color: green;
+		}
+		.aa{
+			background-color: tomato;
+		}
+	</style>
+</head>
+<body class="bg-secondary">
+	<div class="container bg-secondary animated fadeInUp">
+		<div class="row a bg-dark justify-content-center">
+			<h1 class="col-12">.</h1>
+			<h1 style="text-align: center;" class="col-12 text-primary animated fadeInUp">Tasker</h1>
+			<div class="col-12 form-group animated fadeInUp"><input id="inp" class="form-control c" type="text" required name="inp"></div>
+			<div class="col-12 animated fadeInUp" style="text-align: center;"><button onclick="fun1()" id="bt" class="btn-primary a">SUBMIT</button></div>
+			<div class="col-12 col-md-6 bg-primary b animated fadeInUp">
+				<div>
+					<ul>
+						<li style="font-size: 20px">to-Do</li>
+						<ul class="row animated fadeInUp" id="a">
+							
+						</ul>
+					</ul>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 bg-primary b animated fadeInUp">
+				<div>
+					<ul>
+						<li style="font-size: 20px">Done</li>
+						<ul class="row animated fadeInUp" id="b">
+							
+						</ul>
+					</ul>
+				</div>
+			</div>
+			.
+		</div>
+	</div>
+	<script type="text/javascript">
+		var x=document.getElementById("inp");
+		var y=document.getElementById("bt");
+		var a=document.getElementById("a");
+		var b=document.getElementById("b");
+		var i=0;
+		function fun1(){
+			a.innerHTML+="<div class=\"col-4\" id='"+String(i)+"'><li>"+x.value+"<button class=\"btn col-4 a aa animated fadeIn\" onclick=\"fun2("+String(i)+")\"> x </button></li></div>";
+			i=i+1;
+			x.value="";
+		}
+		function fun2(abc){
+			var temp=document.getElementById(abc).outerHTML.split("fun2");
+			b.innerHTML+=temp[0]+"fun3"+temp[1];
+			document.getElementById(abc).remove();
+		}
+		function fun3(abcd){
+			var temp1=document.getElementById(abcd).outerHTML.split("fun3");
+			document.getElementById(abcd).remove();
+			a.innerHTML+=temp1[0]+"fun2"+temp1[1];
+		}
+	</script>
+</body>
+</html>
