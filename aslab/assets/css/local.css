@@ -1,0 +1,18 @@
+.pa{
+	padding:20px;border-radius: 10px 10px;text-align: center;
+}
+.mr{
+	margin-top:50px;margin-bottom: 150px
+}
+.he90{
+	height: 800px;
+}
+.header{
+	text-align: center;font-size: 40px;
+}
+.bo-2{
+	border: solid 2px;
+}
+.bo-2:hover{
+	background-color: silver;
+}
