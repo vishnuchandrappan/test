@@ -1,86 +1,175 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>TO-DO</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	<link href="https://fastcdn.org/Animate.css/3.4.0/animate.css" rel="stylesheet">
-	<style type="text/css">
-		body{
-			margin-top:50px;		
-		}
-		.a{
-			border-radius: 10px 10px;margin-top:5px;margin-bottom:5px;
-		}
-		.b{
-			text-align: justify;
-		}
-		.c{
-			margin-left: 250px;margin-right: 250px;max-width: 50%;
-		}
-		button{
-			margin:solid;
-		}
-		.ac{
-			background-color: green;
-		}
-		.aa{
-			background-color: tomato;
-		}
-	</style>
-</head>
-<body class="bg-secondary">
-	<div class="container bg-secondary animated fadeInUp">
-		<div class="row a bg-dark justify-content-center">
-			<h1 class="col-12">.</h1>
-			<h1 style="text-align: center;" class="col-12 text-primary animated fadeInUp">Tasker</h1>
-			<div class="col-12 form-group animated fadeInUp"><input id="inp" class="form-control c" type="text" required name="inp"></div>
-			<div class="col-12 animated fadeInUp" style="text-align: center;"><button onclick="fun1()" id="bt" class="btn-primary a">SUBMIT</button></div>
-			<div class="col-12 col-md-6 bg-primary b animated fadeInUp">
-				<div>
-					<ul>
-						<li style="font-size: 20px">to-Do</li>
-						<ul class="row animated fadeInUp" id="a">
-							
-						</ul>
-					</ul>
-				</div>
-			</div>
-			<div class="col-12 col-md-6 bg-primary b animated fadeInUp">
-				<div>
-					<ul>
-						<li style="font-size: 20px">Done</li>
-						<ul class="row animated fadeInUp" id="b">
-							
-						</ul>
-					</ul>
-				</div>
-			</div>
-			.
-		</div>
-	</div>
-	<script type="text/javascript">
-		var x=document.getElementById("inp");
-		var y=document.getElementById("bt");
-		var a=document.getElementById("a");
-		var b=document.getElementById("b");
-		var i=0;
-		function fun1(){
-			a.innerHTML+="<div class=\"col-4\" id='"+String(i)+"'><li>"+x.value+"<button class=\"btn col-4 a aa animated fadeIn\" onclick=\"fun2("+String(i)+")\"> x </button></li></div>";
-			i=i+1;
-			x.value="";
-		}
-		function fun2(abc){
-			var temp=document.getElementById(abc).outerHTML.split("fun2");
-			b.innerHTML+=temp[0]+"fun3"+temp[1];
-			document.getElementById(abc).remove();
-		}
-		function fun3(abcd){
-			var temp1=document.getElementById(abcd).outerHTML.split("fun3");
-			document.getElementById(abcd).remove();
-			a.innerHTML+=temp1[0]+"fun2"+temp1[1];
-		}
-	</script>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap.css">
+    <style media="screen">
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+      html, body {
+      height: 100%;
+      margin: 0;
+      position: relative;
+      background: #222;
+      font-family: "Open Sans";
+      }
+
+      #wrap {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      }
+
+      #wrap p {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: rgba(255,255,255,.5);
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-align: center;
+      }
+
+      .ball {
+      pointer-events: none;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: gray;
+      animation: implode 1s ease-in-out;
+      animation-fill-mode: both;
+      opacity: .5;
+      }
+
+      @keyframes implode {
+      100% {transform: scale(0)}
+      }
+
+
+      html, body { height: 100%; }
+body {
+    margin: 0;
+    background: radial-gradient(#666, #222);
+    overflow: hidden;
+}
+
+.moving-zone {
+    position: absolute;
+    top:50%; left:50%;
+    width:300px; height:120px;
+    margin: -60px 0 0 -150px;
+    perspective: 800px;
+}
+.popup {
+    position: absolute;
+    width:300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px 0 20px 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    background: -webkit-linear-gradient(top left, white 50%, coral 50%);
+    background:    -moz-linear-gradient(top left, white 50%, coral 50%);
+    background:     -ms-linear-gradient(top left, white 50%, coral 50%);
+    background:      -o-linear-gradient(top left, white 50%, coral 50%);
+    background:         linear-gradient(top left, white 50%, coral 50%);
+}
+.popup:before {
+    content: '';
+    position: absolute;
+    left:5%; top:5%;
+    width:90%; height:90%;
+    border-radius: inherit;
+    background: rgba(0,0,0,.1);
+    box-shadow: 0 0 40px 20px rgba(0,0,0,.1);
+    transform: translateZ(-100px);
+}
+.popup-content {
+    background: #444;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px 0 10px 0;
+}
+.popup-text {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 100;
+    text-align: center;
+    transform: translateZ(15px);
+}
+.popup-text b {
+    color: coral;
+    font-weight: 300;
+}
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+
+    </div>
+    <div class="moving-zone" id="hid">
+        <div class="popup">
+            <div class="popup-content">
+                <div class="popup-text">
+                    <form class="form from-control row justify-content-md-center" action="index.php" method="post">
+                      <input type="text" class="col-12 form-control" name="uname" placeholder="Username" required>
+                      <input type="password" class="col-12 form-control" name="passwd" placeholder="password" required>
+                      <button type="button" class="btn btn-secondary" name="button">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+      var moveForce = 30; // max popup movement in pixels
+      var rotateForce = 20; // max popup rotation in deg
+      $(document).mousemove(function(e) {
+        var docX = $(document).width();
+        var docY = $(document).height();
+        var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
+        var moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
+        var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
+        var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
+        $('.popup')
+            .css('left', moveX+'px')
+            .css('top', moveY+'px')
+            .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
+      });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        var mousePos = {};
+        function getRandomInt(min, max) {
+         return Math.round(Math.random() * (max - min + 1)) + min;
+        }
+        $(window).mousemove(function(e) {
+          mousePos.x = e.pageX;
+          mousePos.y = e.pageY;
+        });
+        $(window).mouseleave(function(e) {
+          mousePos.x = -1;
+          mousePos.y = -1;
+        });
+        var draw = setInterval(function(){
+          if(mousePos.x > 0 && mousePos.y > 0){
+            var range = 15;
+            var color = "background: rgb("+getRandomInt(240,255)+","+getRandomInt(0,255)+","+getRandomInt(0,255)+");";
+            var sizeInt = getRandomInt(10, 30);
+            size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+            var left = "left: " + getRandomInt(mousePos.x-range-sizeInt, mousePos.x+range) + "px;";
+            var top = "top: " + getRandomInt(mousePos.y-range-sizeInt, mousePos.y+range) + "px;";
+            var style = left+top+color+size;
+            $("<div class='ball' style='" + style + "'></div>").appendTo('#wrap').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();});
+          }
+        }, 1);
+        });
+    </script>
+  </body>
 </html>
