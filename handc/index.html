@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>H & C | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/fontawsome.css">
+    <link rel="stylesheet" href="assets/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|K2D:700" rel="stylesheet">
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="assets/js/sweetalert.js"></script>
+  </head>
+  <body class="container-fluid">
+    <div class="row">
+
+
+      <div class="col-12" id="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-1">
+          <a class="navbar-brand" href="#"><img src="https://www.handcstores.com/themes/user/img/logo.png" height="40" class="d-inline-block align-top" alt=""></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h4 style="position:fixed;left:45%"><strong>DASHBOARD</strong></h4>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light my-2 my-sm-0"  type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
+
+      <div class="col-12" id="content">
+        <div class="row">
+          <div class="col-2 bg-dark" id="menu">
+            <div class="row">
+              <div class="col-12">
+                <h3 class="cen">MENU</h3>
+              </div>
+              <h4 class="col-12 tab" id="school">SCHOOL</h4>
+              <h4 class="col-12 tab hid sub" id="sca">  - ADD</h4>
+              <h4 class="col-12 tab hid sub" id="sce">  - EDIT</h4>
+              <h4 class="col-12 tab" id="book">BOOK</h4>
+              <h4 class="col-12 tab hid sub" id="boa">  - ADD</h4>
+              <h4 class="col-12 tab hid sub" id="boe">  - EDIT</h4>
+            </div>
+          </div>
+          <div class="col-10">
+            <img class="under" src="assets/images/underline.png">
+            <div class="row">
+
+
+              <div class="col-9">
+                <div class="hid text text-dark" id="scform" style="margin-bottom:195px;">
+                  <form class="row justify-content-md-center form">
+                    <div class="col-12" style="margin-bottom:50px;">
+                      <h1>Add New School</h1>
+                    </div>
+                    <div class="col-12 cen hid f1" id="scname1">Name of School</div>
+                    <input type="text" class="form-control col-8" name="scname" placeholder="Name of School" id="scname">
+                    <div class="col-12 cen hid f1" id="scaddr1">Address</div>
+                    <input type="text" class="form-control col-8" name="scaddr" placeholder="Address" id="scaddr">
+                    <div class="col-12 cen hid f1" id="scphno1">Phone Number</div>
+                    <input type="number" class="form-control col-8" name="scphno" placeholder="Phone Number" id="scphno">
+                    <div class="col-12 cen hid f1" id="scemail1">Email ID</div>
+                    <input type="number" class="form-control col-8" name="scemail" placeholder="Email ID" id="scemail">
+                    <div class="col-12 mt cen"> <h4>Select Classes</h4> </div>
+                    <span class="col-2 f1">Class 1<input type="checkbox" class="form-control" name="Class 1" value="c1"></span>
+                    <span class="col-2 f1">Class 2<input type="checkbox" class="form-control" name="Class 2" value="c2"></span>
+                    <span class="col-2 f1">Class 3<input type="checkbox" class="form-control" name="Class 3" value="c3"></span>
+                    <span class="col-2 f1">Class 4<input type="checkbox" class="form-control" name="Class 4" value="c4"></span>
+                    <span class="col-2 f1">Class 5<input type="checkbox" class="form-control" name="Class 5" value="c5"></span>
+                    <span class="col-2 f1">Class 6<input type="checkbox" class="form-control" name="Class 6" value="c6"></span>
+                    <span class="col-2 f1">Class 7<input type="checkbox" class="form-control" name="Class 7" value="c7"></span>
+                    <span class="col-2 f1">Class 8<input type="checkbox" class="form-control" name="Class 8" value="c8"></span>
+                    <span class="col-2 f1">Class 9<input type="checkbox" class="form-control" name="Class 9" value="c9"></span>
+                    <span class="col-2 f1">Class 10<input type="checkbox" class="form-control" name="Class 10" value="c10"></span>
+                    <span class="col-2 f1">Class +1<input type="checkbox" class="form-control" name="Class +1" value="c11"></span>
+                    <span class="col-2 f1">Class +2<input type="checkbox" class="form-control" name="Class +2" value="c12"></span>
+                    <button type="button" class="btn btn-secondary mt" name="button" id="scbtn">SUBMIT</button>
+                  </form>
+                </div>
+                <div class=" text text-dark" id="sclist">
+                  <div class="row justify-content-md-center">
+                    <ol id="example-1" class="col-6">
+                      <li v-for="item in items">
+                        {{ item }}
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-3 bg-dark" id="rpanel">
+                <div class="card" id="card1">
+                  <h3 class="cardtxt">Add School</h3>
+                </div>
+                <div class="card hid" id="card2">
+                  <h3 class="cardtxt">School List</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12" id="footer">
+        <h6 style="padding:10px">copyright details</h6>
+      </div>
+
+    </div>
+    <script type="text/javascript">
+    var example1 = new Vue({
+      el: '#example-1',
+      data: {
+        items: ['Bharathiya Vidya Bhavan','Choice','Global Public School','Rajagiri']
+      },
+    })
+    </script>
+    <script type="text/javascript" src="assets/js/master.js"></script>
+  </body>
+</html>

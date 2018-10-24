@@ -1,0 +1,71 @@
+#header{
+  position: fixed;
+  background-color: #a60f0f;
+  height: 65px;
+  color: white;
+  font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+#footer{
+  position: fixed;
+  bottom: 0px;
+  background-color: #a60f0f;
+  height: 85px;
+  color: white;
+  font-size: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+}
+#content{
+  margin-top:65px;
+  position: fixed;
+  height: 65px;
+  color: white;
+  font-size: 25px;
+  font-family: 'K2D', sans-serif;
+}
+#menu{
+  border: solid 2px silver;min-height: 900px;
+}
+#rpanel{
+  position: fixed;
+  right:0px;
+  color: white;
+  font-size: 25px;
+  font-family: 'K2D', sans-serif;
+  min-height: 900px;
+  max-width: 350px;
+}
+.cen{
+  text-align: center;
+}
+.hid{
+  display: none;
+}
+.sub{
+  background-color: #7f8b96;font-size: 20px;
+}
+.tab{
+  background-color: #5e6770;margin: 0px;min-height: 50px;cursor: pointer;padding: 5px;
+}
+.under{
+  transform: rotate(90deg);position: fixed;right: 200px;top:200px;
+}
+.card{
+  color:black;text-align: center;min-height: 100px;margin-top: 300px;margin-bottom: 400px;
+}
+.cardtxt{
+  padding: 25px;
+}
+.form-control{
+  margin:2px;
+}
+.f1{
+  font-size: 18px;
+}
+.mt{
+  margin-top: 100px;
+}
+.tab:hover{
+  background-color: #a60f0f;
+}
